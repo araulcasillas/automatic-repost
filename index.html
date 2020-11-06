@@ -1,3 +1,22 @@
+<script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
+<script>
+SC.initialize({
+  client_id: 'YOUR_CLIENT_ID',
+  redirect_uri: 'https://sc-automatic-repost.netlify.app/'
+});
+  
+function abrirPopupSC()
+  {
+    SC.connect().then(function() {
+      return SC.get('/me');
+    }).then(function(me) {
+      alert('Hello, ' + me.username);
+    });
+  }
+
+</script>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +24,7 @@
 </head>
 <body>
   
-  <img src="https://connect.soundcloud.com/2/btn-connect-sc-l.png" alt="" />
+  <img src="https://connect.soundcloud.com/2/btn-connect-sc-l.png" alt="" onClick="abrirPopupSC()"/>
   
 </body>
 </html>
